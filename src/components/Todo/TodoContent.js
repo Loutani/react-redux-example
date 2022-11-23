@@ -1,7 +1,14 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { toggleTodo } from '../../redux/slices/TodoSlice';
 
 function TodoContent({todo}) {
     const {id, content, completed} = todo;
+    const dispatch = useDispatch();
+
+    const handleToggleTodo = (todoId) => {
+        dispatch(toggleTodo(todoId));
+    }
 
     return (
         <div className="todos">
@@ -10,7 +17,7 @@ function TodoContent({todo}) {
                     completed ? <strike><p>{content}</p></strike> : <p>{content}</p>
                 }
                 
-                <button>toggle</button>
+                <button onClick={() => handleToggleTodo(id)}>toggle</button>
                 <button>delete</button>
             </div>
         </div>
