@@ -1,10 +1,12 @@
 import React from 'react'
 
-function TodoContent() {
+function TodoContent({todo}) {
+    const {id, content, completed} = todo;
+
     return (
         <div className="todos">
             <div className="todo">
-                <p>todo content</p>
+                <p>{content}</p>
                 <button>toggle</button>
                 <button>delete</button>
             </div>
