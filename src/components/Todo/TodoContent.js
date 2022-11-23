@@ -17,7 +17,7 @@ function TodoContent({todo}) {
                     completed ? <strike><p>{content}</p></strike> : <p>{content}</p>
                 }
                 
-                <button onClick={() => handleToggleTodo(id)}>toggle</button>
+                <button onClick={() => handleToggleTodo(id)}>{completed ? 'make it not completed' : 'make it completed'}</button>
                 <button>delete</button>
             </div>
         </div>
