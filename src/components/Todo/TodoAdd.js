@@ -13,7 +13,7 @@ function TodoAdd() {
 
     const handleAddTodo = () => {
         const newTodo = {
-            id: Math.random,
+            id: Math.random(),
             content: todo,
             completed: false
         }
