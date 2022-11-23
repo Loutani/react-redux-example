@@ -6,7 +6,10 @@ function TodoContent({todo}) {
     return (
         <div className="todos">
             <div className="todo">
-                <p>{content}</p>
+                {
+                    completed ? <strike><p>{content}</p></strike> : <p>{content}</p>
+                }
+                
                 <button>toggle</button>
                 <button>delete</button>
             </div>
