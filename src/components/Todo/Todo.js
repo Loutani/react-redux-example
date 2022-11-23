@@ -4,19 +4,28 @@ import TodoAdd from './TodoAdd'
 import TodoContent from './TodoContent'
 
 function Todo() {
-    const todos = useSelector(state => state.todos)
+    const todos = useSelector(state => state.todos);
+    const completedTodo = todos.filter(todo => todo.completed)
+    const remainTodo = todos.filter(todo => !todo.completed)
+
+    if(todos.length <= 0) {
+        return  <>
+                    <TodoAdd />
+                    <hr />
+                    <p>no todo found</p>
+                    <hr />
+                </>
+    }
+
     return (
         <>
         <TodoAdd />
 
         <hr />
 
-        {
-            todos.length > 0 && todos.map(todo => <TodoContent key={todo.id} todo={todo} />)
-        }
-        {
-            todos.length <= 0 && <p>no todo found</p>
-        }
+        <p>total todo: {todos.length}, completed: {completedTodo.length}, remain: {remainTodo.length}</p>
+
+        {todos.map(todo => <TodoContent key={todo.id} todo={todo} />)}
 
         <hr />
         </>
