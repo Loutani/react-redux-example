@@ -5,11 +5,7 @@ export const todoSlice = createSlice({
     initialState: [],
     reducers: {
         addTodo: (state, action) => {
-            const newTodo = {
-                id: Math.random(),
-                content: action.payload.todoContent,
-                completed: false
-            }
+            const newTodo = action.payload
 
             return [...state, newTodo];
         }
